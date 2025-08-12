@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "info": {
+    "title": "Application",
+    "version": "1.0.0",
+    "description": "Auto-generated AppSpec",
+    "servers": []
+  },
+  "endpoints": [],
+  "parameters": {},
+  "security": {},
+  "metadata": {
+    "compiledAt": "2025-08-12T19:57:06.286Z",
+    "compiler": {
+      "version": "1.0.0",
+      "sources": {}
+    },
+    "coverage": {
+      "endpointsDocumented": 0,
+      "parametersAnnotated": 0,
+      "securityCovered": 0
+    }
+  }
+}

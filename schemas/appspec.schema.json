@@ -1,0 +1,534 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://preversec.dev/schemas/appspec.json",
+  "title": "AppSpec - Unified Application Specification",
+  "description": "Complete application context specification for security testing and analysis",
+  "type": "object",
+  "required": ["version", "info", "endpoints", "parameters", "security"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": ["1.0.0"],
+      "description": "AppSpec schema version"
+    },
+    "info": {
+      "type": "object",
+      "required": ["title", "version"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Application title"
+        },
+        "version": {
+          "type": "string",
+          "description": "Application version"
+        },
+        "description": {
+          "type": "string",
+          "description": "Application description"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "email": { "type": "string", "format": "email" },
+            "url": { "type": "string", "format": "uri" }
+          }
+        },
+        "license": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "url": { "type": "string", "format": "uri" }
+          }
+        },
+        "servers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["url"],
+            "properties": {
+              "url": { "type": "string", "format": "uri" },
+              "description": { "type": "string" },
+              "environment": { "type": "string", "enum": ["development", "staging", "production"] }
+            }
+          }
+        }
+      }
+    },
+    "endpoints": {
+      "type": "array",
+      "description": "All discovered endpoints in the application",
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "method", "source"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique endpoint identifier"
+          },
+          "path": {
+            "type": "string",
+            "description": "Endpoint path with parameter placeholders"
+          },
+          "method": {
+            "type": "string",
+            "enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS", "TRACE"],
+            "description": "HTTP method"
+          },
+          "source": {
+            "type": "string",
+            "enum": ["openapi", "graphql", "postman", "har", "gateway", "code-discovery", "manual"],
+            "description": "Source of endpoint discovery"
+          },
+          "operationId": {
+            "type": "string",
+            "description": "Operation identifier from original spec"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Brief endpoint description"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed endpoint description"
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Endpoint categorization tags"
+          },
+          "parameters": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/Parameter" },
+            "description": "Endpoint parameters"
+          },
+          "requestBody": {
+            "$ref": "#/definitions/RequestBody",
+            "description": "Request body specification"
+          },
+          "responses": {
+            "type": "object",
+            "patternProperties": {
+              "^[1-5][0-9][0-9]$|default": {
+                "$ref": "#/definitions/Response"
+              }
+            },
+            "description": "Response specifications by status code"
+          },
+          "security": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "description": "Security requirements for this endpoint"
+          },
+          "deprecated": {
+            "type": "boolean",
+            "description": "Whether the endpoint is deprecated"
+          },
+          "rateLimit": {
+            "$ref": "#/definitions/RateLimit",
+            "description": "Rate limiting configuration"
+          },
+          "semantics": {
+            "$ref": "#/definitions/SemanticAnnotations",
+            "description": "Semantic annotations from analysis"
+          }
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Reusable parameter definitions",
+      "additionalProperties": {
+        "$ref": "#/definitions/Parameter"
+      }
+    },
+    "security": {
+      "type": "object",
+      "description": "Security scheme definitions",
+      "additionalProperties": {
+        "$ref": "#/definitions/SecurityScheme"
+      }
+    },
+    "components": {
+      "type": "object",
+      "description": "Reusable components",
+      "properties": {
+        "schemas": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "http://json-schema.org/draft-07/schema#"
+          }
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Header"
+          }
+        },
+        "examples": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Example"
+          }
+        }
+      }
+    },
+    "frontend": {
+      "type": "object",
+      "description": "Frontend-specific context",
+      "properties": {
+        "framework": {
+          "type": "string",
+          "enum": ["react", "angular", "vue", "svelte", "next", "nuxt", "vanilla"],
+          "description": "Frontend framework"
+        },
+        "typescript": {
+          "type": "boolean",
+          "description": "Whether TypeScript is used"
+        },
+        "sourceMaps": {
+          "type": "object",
+          "description": "Source map analysis results",
+          "properties": {
+            "available": { "type": "boolean" },
+            "files": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "source": { "type": "string" },
+                  "map": { "type": "string" },
+                  "endpoints": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "semanticTypes": {
+          "type": "object",
+          "description": "Detected semantic types from TypeScript definitions",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string" },
+              "semantic": {
+                "type": "string",
+                "enum": ["email", "password", "jwt", "csrf", "money", "id", "timestamp", "url"]
+              },
+              "sensitive": { "type": "boolean" },
+              "validation": {
+                "type": "object",
+                "properties": {
+                  "pattern": { "type": "string" },
+                  "min": { "type": "number" },
+                  "max": { "type": "number" },
+                  "required": { "type": "boolean" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "roles": {
+      "type": "object",
+      "description": "Role-based access control matrix",
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "permissions": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "inheritFrom": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        },
+        "permissions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "resource": { "type": "string" },
+              "actions": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "featureFlags": {
+      "type": "object",
+      "description": "Feature flag configuration affecting endpoints",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "enabled": { "type": "boolean" },
+          "conditions": {
+            "type": "object",
+            "properties": {
+              "userSegments": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "percentage": { "type": "number", "minimum": 0, "maximum": 100 }
+            }
+          },
+          "affectedEndpoints": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "documentation": {
+      "type": "object",
+      "description": "Embedded documentation and annotations",
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string", "enum": ["markdown", "swagger-ui", "postman", "readme"] },
+              "path": { "type": "string" },
+              "content": { "type": "string" }
+            }
+          }
+        },
+        "ragAnnotations": {
+          "type": "object",
+          "description": "RAG-powered parameter and endpoint annotations",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "meaning": { "type": "string" },
+              "invariants": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "examples": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "relatedEndpoints": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Compilation metadata",
+      "properties": {
+        "compiledAt": { "type": "string", "format": "date-time" },
+        "compiler": {
+          "type": "object",
+          "properties": {
+            "version": { "type": "string" },
+            "sources": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "path": { "type": "string" },
+                  "lastModified": { "type": "string", "format": "date-time" },
+                  "checksum": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "endpointsDocumented": { "type": "number", "minimum": 0, "maximum": 100 },
+            "parametersAnnotated": { "type": "number", "minimum": 0, "maximum": 100 },
+            "securityCovered": { "type": "number", "minimum": 0, "maximum": 100 }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Parameter": {
+      "type": "object",
+      "required": ["name", "in"],
+      "properties": {
+        "name": { "type": "string" },
+        "in": { "type": "string", "enum": ["query", "header", "path", "cookie", "body"] },
+        "description": { "type": "string" },
+        "required": { "type": "boolean", "default": false },
+        "deprecated": { "type": "boolean", "default": false },
+        "schema": { "$ref": "http://json-schema.org/draft-07/schema#" },
+        "example": {},
+        "examples": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/definitions/Example" }
+        },
+        "semantic": {
+          "type": "string",
+          "enum": ["email", "password", "jwt", "csrf", "money", "id", "timestamp", "url", "phone", "ssn"]
+        },
+        "sensitive": { "type": "boolean" },
+        "ragAnnotation": {
+          "type": "object",
+          "properties": {
+            "meaning": { "type": "string" },
+            "invariants": { "type": "array", "items": { "type": "string" } },
+            "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        }
+      }
+    },
+    "RequestBody": {
+      "type": "object",
+      "properties": {
+        "description": { "type": "string" },
+        "content": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/definitions/MediaType" }
+        },
+        "required": { "type": "boolean", "default": false }
+      }
+    },
+    "Response": {
+      "type": "object",
+      "required": ["description"],
+      "properties": {
+        "description": { "type": "string" },
+        "headers": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/definitions/Header" }
+        },
+        "content": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/definitions/MediaType" }
+        }
+      }
+    },
+    "MediaType": {
+      "type": "object",
+      "properties": {
+        "schema": { "$ref": "http://json-schema.org/draft-07/schema#" },
+        "example": {},
+        "examples": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/definitions/Example" }
+        }
+      }
+    },
+    "Header": {
+      "type": "object",
+      "properties": {
+        "description": { "type": "string" },
+        "required": { "type": "boolean", "default": false },
+        "deprecated": { "type": "boolean", "default": false },
+        "schema": { "$ref": "http://json-schema.org/draft-07/schema#" }
+      }
+    },
+    "Example": {
+      "type": "object",
+      "properties": {
+        "summary": { "type": "string" },
+        "description": { "type": "string" },
+        "value": {},
+        "externalValue": { "type": "string", "format": "uri" }
+      }
+    },
+    "SecurityScheme": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["apiKey", "http", "oauth2", "openIdConnect", "jwt"]
+        },
+        "description": { "type": "string" },
+        "name": { "type": "string" },
+        "in": { "type": "string", "enum": ["query", "header", "cookie"] },
+        "scheme": { "type": "string" },
+        "bearerFormat": { "type": "string" },
+        "flows": { "$ref": "#/definitions/OAuthFlows" },
+        "openIdConnectUrl": { "type": "string", "format": "uri" }
+      }
+    },
+    "OAuthFlows": {
+      "type": "object",
+      "properties": {
+        "implicit": { "$ref": "#/definitions/OAuthFlow" },
+        "password": { "$ref": "#/definitions/OAuthFlow" },
+        "clientCredentials": { "$ref": "#/definitions/OAuthFlow" },
+        "authorizationCode": { "$ref": "#/definitions/OAuthFlow" }
+      }
+    },
+    "OAuthFlow": {
+      "type": "object",
+      "required": ["scopes"],
+      "properties": {
+        "authorizationUrl": { "type": "string", "format": "uri" },
+        "tokenUrl": { "type": "string", "format": "uri" },
+        "refreshUrl": { "type": "string", "format": "uri" },
+        "scopes": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "RateLimit": {
+      "type": "object",
+      "properties": {
+        "requests": { "type": "integer", "minimum": 1 },
+        "window": { "type": "string" },
+        "burst": { "type": "integer", "minimum": 1 },
+        "scope": { "type": "string", "enum": ["global", "user", "ip", "api-key"] }
+      }
+    },
+    "SemanticAnnotations": {
+      "type": "object",
+      "properties": {
+        "dataTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["pii", "financial", "health", "biometric", "location", "behavioral"]
+          }
+        },
+        "businessContext": { "type": "string" },
+        "riskLevel": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+        "complianceRequirements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["gdpr", "ccpa", "hipaa", "pci-dss", "sox", "ferpa"]
+          }
+        }
+      }
+    }
+  }
+}

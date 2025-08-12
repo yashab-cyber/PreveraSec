@@ -1,0 +1,64 @@
+{
+  "ingestors": {
+    "openapi": {
+      "enabled": true,
+      "versions": ["2.0", "3.0", "3.1"]
+    },
+    "graphql": {
+      "enabled": false,
+      "introspection": true
+    },
+    "postman": {
+      "enabled": true,
+      "environments": true
+    },
+    "har": {
+      "enabled": true,
+      "filter_static": true
+    },
+    "gateway": {
+      "enabled": false,
+      "providers": ["aws", "kong"]
+    }
+  },
+  "enrichment": {
+    "source_maps": true,
+    "typescript_definitions": true,
+    "semantic_analysis": true,
+    "code_discovery": {
+      "enabled": true,
+      "safe_mode": true,
+      "max_depth": 3
+    }
+  },
+  "rag": {
+    "embedding_model": "text-embedding-3-small",
+    "documentation_sources": ["./docs", "./README.md"],
+    "confidence_threshold": 0.75,
+    "max_tokens": 4000
+  },
+  "dast": {
+    "max_concurrent": 5,
+    "timeout": 20000,
+    "follow_redirects": true,
+    "custom_headers": {
+      "User-Agent": "PreveraSec/1.0.0"
+    },
+    "rate_limit": {
+      "requests_per_second": 5,
+      "burst_size": 10
+    }
+  },
+  "output": {
+    "format": "json",
+    "pretty": true,
+    "include_metadata": true
+  },
+  "security": {
+    "rate_limiting": {
+      "enabled": true,
+      "requests_per_minute": 100
+    },
+    "allowed_origins": ["*"]
+  }
+}

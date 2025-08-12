@@ -1,0 +1,1162 @@
+{
+  "version": "1.0.0",
+  "info": {
+    "title": "Sample E-commerce API",
+    "version": "1.2.0",
+    "description": "A comprehensive e-commerce API with user management, product catalog, and order processing",
+    "servers": [
+      {
+        "url": "https://api.example.com/v1",
+        "description": "Production server"
+      }
+    ],
+    "contact": {
+      "name": "API Support",
+      "email": "api-support@example.com"
+    }
+  },
+  "endpoints": [
+    {
+      "id": "get__users",
+      "path": "/users",
+      "method": "GET",
+      "source": "openapi",
+      "operationId": "getUsers",
+      "summary": "List users",
+      "tags": [
+        "users"
+      ],
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "description": "Number of users to return",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "sensitive": false
+        },
+        {
+          "name": "email",
+          "in": "query",
+          "description": "Filter by email address",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "format": "email"
+          },
+          "semantic": "email",
+          "sensitive": false
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "List of users",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "User ID"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "pattern": "^\\+?[1-9]\\d{1,14}$"
+                    },
+                    "address": {
+                      "type": "object",
+                      "properties": {
+                        "street": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "zipCode": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "street",
+                        "city",
+                        "country",
+                        "zipCode"
+                      ]
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "email",
+                    "firstName",
+                    "lastName"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "security": [
+        {
+          "BearerAuth": [
+            "read:users"
+          ]
+        }
+      ],
+      "semantics": {
+        "riskLevel": "low"
+      }
+    },
+    {
+      "id": "post__users",
+      "path": "/users",
+      "method": "POST",
+      "source": "openapi",
+      "operationId": "postUsers",
+      "summary": "Create user",
+      "tags": [
+        "users"
+      ],
+      "parameters": [],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "password": {
+                  "type": "string",
+                  "minLength": 8
+                },
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "email",
+                "password",
+                "firstName",
+                "lastName"
+              ]
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "User created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "User ID"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "pattern": "^\\+?[1-9]\\d{1,14}$"
+                  },
+                  "address": {
+                    "type": "object",
+                    "properties": {
+                      "street": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "zipCode": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "street",
+                      "city",
+                      "country",
+                      "zipCode"
+                    ]
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "id",
+                  "email",
+                  "firstName",
+                  "lastName"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "security": [
+        {
+          "ApiKeyAuth": []
+        },
+        {
+          "BearerAuth": []
+        }
+      ],
+      "semantics": {
+        "riskLevel": "low"
+      }
+    },
+    {
+      "id": "get__users_userId",
+      "path": "/users/:userId",
+      "method": "GET",
+      "source": "openapi",
+      "operationId": "getUsers:userId",
+      "summary": "Get user by ID",
+      "tags": [
+        "users"
+      ],
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "description": "User ID",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+          },
+          "semantic": "id",
+          "sensitive": false
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "User details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "User ID"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "pattern": "^\\+?[1-9]\\d{1,14}$"
+                  },
+                  "address": {
+                    "type": "object",
+                    "properties": {
+                      "street": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "zipCode": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "street",
+                      "city",
+                      "country",
+                      "zipCode"
+                    ]
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "id",
+                  "email",
+                  "firstName",
+                  "lastName"
+                ]
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "User not found"
+        }
+      },
+      "security": [
+        {
+          "BearerAuth": [
+            "read:users"
+          ]
+        }
+      ],
+      "semantics": {
+        "riskLevel": "low"
+      }
+    },
+    {
+      "id": "get__products",
+      "path": "/products",
+      "method": "GET",
+      "source": "openapi",
+      "operationId": "getProducts",
+      "summary": "List products",
+      "tags": [
+        "products"
+      ],
+      "parameters": [
+        {
+          "name": "category",
+          "in": "query",
+          "description": "Product category",
+          "required": false,
+          "schema": {
+            "type": "string"
+          },
+          "sensitive": false
+        },
+        {
+          "name": "price_min",
+          "in": "query",
+          "description": "Minimum price",
+          "required": false,
+          "schema": {
+            "type": "number",
+            "minimum": 0
+          },
+          "semantic": "money",
+          "sensitive": false
+        },
+        {
+          "name": "price_max",
+          "in": "query",
+          "description": "Maximum price",
+          "required": false,
+          "schema": {
+            "type": "number",
+            "minimum": 0
+          },
+          "semantic": "money",
+          "sensitive": false
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "List of products",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "currency": {
+                      "type": "string",
+                      "enum": [
+                        "USD",
+                        "EUR",
+                        "GBP"
+                      ]
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "inStock": {
+                      "type": "boolean"
+                    },
+                    "imageUrl": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "price",
+                    "category"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "security": [
+        {
+          "ApiKeyAuth": []
+        },
+        {
+          "BearerAuth": []
+        }
+      ],
+      "semantics": {
+        "riskLevel": "low"
+      }
+    },
+    {
+      "id": "post__orders",
+      "path": "/orders",
+      "method": "POST",
+      "source": "openapi",
+      "operationId": "postOrders",
+      "summary": "Create order",
+      "tags": [
+        "orders"
+      ],
+      "parameters": [],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "productId": {
+                        "type": "string"
+                      },
+                      "quantity": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    },
+                    "required": [
+                      "productId",
+                      "quantity"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "items"
+              ]
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Order created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "userId": {
+                    "type": "string"
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "productId": {
+                          "type": "string"
+                        },
+                        "quantity": {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        "price": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      },
+                      "required": [
+                        "productId",
+                        "quantity",
+                        "price"
+                      ]
+                    }
+                  },
+                  "total": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "pending",
+                      "paid",
+                      "shipped",
+                      "delivered",
+                      "cancelled"
+                    ]
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "id",
+                  "userId",
+                  "items",
+                  "total",
+                  "status"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "security": [
+        {
+          "BearerAuth": [
+            "write:orders"
+          ]
+        }
+      ],
+      "semantics": {
+        "riskLevel": "low"
+      }
+    },
+    {
+      "id": "post__orders_orderId_payment",
+      "path": "/orders/:orderId/payment",
+      "method": "POST",
+      "source": "openapi",
+      "operationId": "postOrders:orderIdPayment",
+      "summary": "Process payment",
+      "tags": [
+        "orders",
+        "payments"
+      ],
+      "parameters": [
+        {
+          "name": "orderId",
+          "in": "path",
+          "description": "Order ID",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "semantic": "id",
+          "sensitive": false
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "currency": {
+                  "type": "string"
+                },
+                "paymentMethod": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "credit_card",
+                        "debit_card",
+                        "paypal"
+                      ]
+                    },
+                    "cardNumber": {
+                      "type": "string",
+                      "pattern": "^\\d{16}$"
+                    },
+                    "expiryMonth": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 12
+                    },
+                    "expiryYear": {
+                      "type": "integer"
+                    },
+                    "cvv": {
+                      "type": "string",
+                      "pattern": "^\\d{3,4}$"
+                    },
+                    "paypalEmail": {
+                      "type": "string",
+                      "format": "email"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                }
+              },
+              "required": [
+                "amount",
+                "currency",
+                "paymentMethod"
+              ]
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Payment processed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "transactionId": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "success",
+                      "failed",
+                      "pending"
+                    ]
+                  },
+                  "amount": {
+                    "type": "number"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "processedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "transactionId",
+                  "status",
+                  "amount"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "security": [
+        {
+          "BearerAuth": [
+            "write:payments"
+          ]
+        }
+      ],
+      "semantics": {
+        "riskLevel": "low"
+      }
+    }
+  ],
+  "parameters": {},
+  "security": {
+    "ApiKeyAuth": {
+      "type": "apiKey",
+      "name": "X-API-Key",
+      "in": "header"
+    },
+    "BearerAuth": {
+      "type": "http",
+      "scheme": "bearer",
+      "bearerFormat": "JWT"
+    }
+  },
+  "metadata": {
+    "compiledAt": "2025-08-12T19:59:27.467Z",
+    "compiler": {
+      "version": "1.0.0",
+      "sources": {
+        "openapi": {
+          "path": "./examples/sample-openapi.json",
+          "lastModified": "2025-08-12T19:52:27.292Z",
+          "checksum": "b67b39ea9b17e2d009b1aee8011bac640e7e177a6d2d960e52b8437e79a8b99d"
+        }
+      }
+    },
+    "coverage": {
+      "endpointsDocumented": 100,
+      "parametersAnnotated": 71,
+      "securityCovered": 100
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "required": [
+          "id",
+          "email",
+          "firstName",
+          "lastName"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User ID"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string",
+            "pattern": "^\\+?[1-9]\\d{1,14}$"
+          },
+          "address": {
+            "type": "object",
+            "required": [
+              "street",
+              "city",
+              "country",
+              "zipCode"
+            ],
+            "properties": {
+              "street": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "zipCode": {
+                "type": "string"
+              }
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CreateUser": {
+        "type": "object",
+        "required": [
+          "email",
+          "password",
+          "firstName",
+          "lastName"
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 8
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "price",
+          "category"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number",
+            "minimum": 0
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "USD",
+              "EUR",
+              "GBP"
+            ]
+          },
+          "category": {
+            "type": "string"
+          },
+          "inStock": {
+            "type": "boolean"
+          },
+          "imageUrl": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "Order": {
+        "type": "object",
+        "required": [
+          "id",
+          "userId",
+          "items",
+          "total",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "productId",
+                "quantity",
+                "price"
+              ],
+              "properties": {
+                "productId": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "price": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              }
+            }
+          },
+          "total": {
+            "type": "number",
+            "minimum": 0
+          },
+          "currency": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "paid",
+              "shipped",
+              "delivered",
+              "cancelled"
+            ]
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CreateOrder": {
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "productId",
+                "quantity"
+              ],
+              "properties": {
+                "productId": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "OrderItem": {
+        "type": "object",
+        "required": [
+          "productId",
+          "quantity",
+          "price"
+        ],
+        "properties": {
+          "productId": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "price": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      },
+      "OrderItemRequest": {
+        "type": "object",
+        "required": [
+          "productId",
+          "quantity"
+        ],
+        "properties": {
+          "productId": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      },
+      "PaymentRequest": {
+        "type": "object",
+        "required": [
+          "amount",
+          "currency",
+          "paymentMethod"
+        ],
+        "properties": {
+          "amount": {
+            "type": "number",
+            "minimum": 0
+          },
+          "currency": {
+            "type": "string"
+          },
+          "paymentMethod": {
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "credit_card",
+                  "debit_card",
+                  "paypal"
+                ]
+              },
+              "cardNumber": {
+                "type": "string",
+                "pattern": "^\\d{16}$"
+              },
+              "expiryMonth": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 12
+              },
+              "expiryYear": {
+                "type": "integer"
+              },
+              "cvv": {
+                "type": "string",
+                "pattern": "^\\d{3,4}$"
+              },
+              "paypalEmail": {
+                "type": "string",
+                "format": "email"
+              }
+            }
+          }
+        }
+      },
+      "PaymentResponse": {
+        "type": "object",
+        "required": [
+          "transactionId",
+          "status",
+          "amount"
+        ],
+        "properties": {
+          "transactionId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "failed",
+              "pending"
+            ]
+          },
+          "amount": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "processedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Address": {
+        "type": "object",
+        "required": [
+          "street",
+          "city",
+          "country",
+          "zipCode"
+        ],
+        "properties": {
+          "street": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "zipCode": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

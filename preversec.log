@@ -1,0 +1,125 @@
+{"level":"info","message":"\u001b[34m🚀 Starting AppSpec compilation...\u001b[39m","timestamp":"2025-08-12T19:54:39.316Z"}
+{"level":"info","message":"[COMPILER] Starting AppSpec compilation","timestamp":"2025-08-12T19:54:39.319Z"}
+{"level":"info","message":"[COMPILER] Phase 1: Ingesting sources","timestamp":"2025-08-12T19:54:39.319Z"}
+{"level":"info","message":"[COMPILER] Phase 1 completed","timestamp":"2025-08-12T19:54:39.320Z","totalEndpoints":0}
+{"level":"info","message":"[COMPILER] Phase 2: Enriching AppSpec","timestamp":"2025-08-12T19:54:39.320Z"}
+{"level":"info","message":"[COMPILER] Phase 2 completed","timestamp":"2025-08-12T19:54:39.320Z"}
+{"level":"info","message":"[COMPILER] Phase 3: Normalizing AppSpec","timestamp":"2025-08-12T19:54:39.321Z"}
+{"level":"info","message":"[COMPILER] Phase 3 completed","timestamp":"2025-08-12T19:54:39.321Z"}
+{"level":"info","message":"[COMPILER] Phase 4: Validating AppSpec","timestamp":"2025-08-12T19:54:39.321Z"}
+{"level":"info","message":"[COMPILER] Phase 4 completed","timestamp":"2025-08-12T19:54:39.322Z"}
+{"endpoints":0,"level":"info","message":"[COMPILER] AppSpec compilation completed successfully","parameters":0,"security":0,"timestamp":"2025-08-12T19:54:39.322Z"}
+{"level":"info","message":"[COMPILER] AppSpec saved to ./appspec.json","timestamp":"2025-08-12T19:54:39.323Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec compiled successfully to ./appspec.json\u001b[39m","timestamp":"2025-08-12T19:54:39.323Z"}
+{"level":"info","message":"\u001b[36m📊 Endpoints: 0\u001b[39m","timestamp":"2025-08-12T19:54:39.323Z"}
+{"level":"info","message":"\u001b[36m🔧 Parameters: 0\u001b[39m","timestamp":"2025-08-12T19:54:39.323Z"}
+{"level":"info","message":"\u001b[36m🛡️  Security schemes: 0\u001b[39m","timestamp":"2025-08-12T19:54:39.323Z"}
+{"level":"info","message":"\u001b[34m🚀 Starting AppSpec compilation...\u001b[39m","timestamp":"2025-08-12T19:55:24.915Z"}
+{"level":"info","message":"[COMPILER] Starting AppSpec compilation","timestamp":"2025-08-12T19:55:24.918Z"}
+{"level":"info","message":"[COMPILER] Phase 1: Ingesting sources","timestamp":"2025-08-12T19:55:24.918Z"}
+{"level":"info","message":"[COMPILER] Phase 1 completed","timestamp":"2025-08-12T19:55:24.919Z","totalEndpoints":0}
+{"level":"info","message":"[COMPILER] Phase 2: Enriching AppSpec","timestamp":"2025-08-12T19:55:24.919Z"}
+{"level":"info","message":"[COMPILER] Phase 2 completed","timestamp":"2025-08-12T19:55:24.919Z"}
+{"level":"info","message":"[COMPILER] Phase 3: Normalizing AppSpec","timestamp":"2025-08-12T19:55:24.919Z"}
+{"level":"info","message":"[COMPILER] Phase 3 completed","timestamp":"2025-08-12T19:55:24.920Z"}
+{"level":"info","message":"[COMPILER] Phase 4: Validating AppSpec","timestamp":"2025-08-12T19:55:24.920Z"}
+{"level":"info","message":"[COMPILER] Phase 4 completed","timestamp":"2025-08-12T19:55:24.920Z"}
+{"endpoints":0,"level":"info","message":"[COMPILER] AppSpec compilation completed successfully","parameters":0,"security":0,"timestamp":"2025-08-12T19:55:24.921Z"}
+{"level":"info","message":"[COMPILER] AppSpec saved to ./appspec.json","timestamp":"2025-08-12T19:55:24.921Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec compiled successfully to ./appspec.json\u001b[39m","timestamp":"2025-08-12T19:55:24.921Z"}
+{"level":"info","message":"\u001b[36m📊 Endpoints: 0\u001b[39m","timestamp":"2025-08-12T19:55:24.922Z"}
+{"level":"info","message":"\u001b[36m🔧 Parameters: 0\u001b[39m","timestamp":"2025-08-12T19:55:24.922Z"}
+{"level":"info","message":"\u001b[36m🛡️  Security schemes: 0\u001b[39m","timestamp":"2025-08-12T19:55:24.922Z"}
+{"level":"info","message":"\u001b[34m🚀 Starting AppSpec compilation...\u001b[39m","timestamp":"2025-08-12T19:56:16.022Z"}
+{"level":"info","message":"[COMPILER] Starting AppSpec compilation","timestamp":"2025-08-12T19:56:16.025Z"}
+{"level":"info","message":"[COMPILER] Phase 1: Ingesting sources","timestamp":"2025-08-12T19:56:16.025Z"}
+{"level":"info","message":"[COMPILER] Phase 1 completed","timestamp":"2025-08-12T19:56:16.026Z","totalEndpoints":0}
+{"level":"info","message":"[COMPILER] Phase 2: Enriching AppSpec","timestamp":"2025-08-12T19:56:16.026Z"}
+{"level":"info","message":"[COMPILER] Phase 2 completed","timestamp":"2025-08-12T19:56:16.026Z"}
+{"level":"info","message":"[COMPILER] Phase 3: Normalizing AppSpec","timestamp":"2025-08-12T19:56:16.027Z"}
+{"level":"info","message":"[COMPILER] Phase 3 completed","timestamp":"2025-08-12T19:56:16.027Z"}
+{"level":"info","message":"[COMPILER] Phase 4: Validating AppSpec","timestamp":"2025-08-12T19:56:16.027Z"}
+{"level":"info","message":"[COMPILER] Phase 4 completed","timestamp":"2025-08-12T19:56:16.028Z"}
+{"endpoints":0,"level":"info","message":"[COMPILER] AppSpec compilation completed successfully","parameters":0,"security":0,"timestamp":"2025-08-12T19:56:16.028Z"}
+{"level":"info","message":"[COMPILER] AppSpec saved to ./appspec.json","timestamp":"2025-08-12T19:56:16.028Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec compiled successfully to ./appspec.json\u001b[39m","timestamp":"2025-08-12T19:56:16.029Z"}
+{"level":"info","message":"\u001b[36m📊 Endpoints: 0\u001b[39m","timestamp":"2025-08-12T19:56:16.029Z"}
+{"level":"info","message":"\u001b[36m🔧 Parameters: 0\u001b[39m","timestamp":"2025-08-12T19:56:16.029Z"}
+{"level":"info","message":"\u001b[36m🛡️  Security schemes: 0\u001b[39m","timestamp":"2025-08-12T19:56:16.029Z"}
+{"level":"info","message":"\u001b[34m🚀 Starting AppSpec compilation...\u001b[39m","timestamp":"2025-08-12T19:56:55.858Z"}
+{"level":"info","message":"[COMPILER] Starting AppSpec compilation","timestamp":"2025-08-12T19:56:55.860Z"}
+{"level":"info","message":"[COMPILER] Phase 1: Ingesting sources","timestamp":"2025-08-12T19:56:55.861Z"}
+{"level":"info","message":"[COMPILER] Phase 1 completed","timestamp":"2025-08-12T19:56:55.861Z","totalEndpoints":0}
+{"level":"info","message":"[COMPILER] Phase 2: Enriching AppSpec","timestamp":"2025-08-12T19:56:55.862Z"}
+{"level":"info","message":"[COMPILER] Phase 2 completed","timestamp":"2025-08-12T19:56:55.862Z"}
+{"level":"info","message":"[COMPILER] Phase 3: Normalizing AppSpec","timestamp":"2025-08-12T19:56:55.862Z"}
+{"level":"info","message":"[COMPILER] Phase 3 completed","timestamp":"2025-08-12T19:56:55.862Z"}
+{"level":"info","message":"[COMPILER] Phase 4: Validating AppSpec","timestamp":"2025-08-12T19:56:55.863Z"}
+{"level":"info","message":"[COMPILER] Phase 4 completed","timestamp":"2025-08-12T19:56:55.863Z"}
+{"endpoints":0,"level":"info","message":"[COMPILER] AppSpec compilation completed successfully","parameters":0,"security":0,"timestamp":"2025-08-12T19:56:55.864Z"}
+{"level":"info","message":"[COMPILER] AppSpec saved to ./appspec.json","timestamp":"2025-08-12T19:56:55.864Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec compiled successfully to ./appspec.json\u001b[39m","timestamp":"2025-08-12T19:56:55.864Z"}
+{"level":"info","message":"\u001b[36m📊 Endpoints: 0\u001b[39m","timestamp":"2025-08-12T19:56:55.864Z"}
+{"level":"info","message":"\u001b[36m🔧 Parameters: 0\u001b[39m","timestamp":"2025-08-12T19:56:55.865Z"}
+{"level":"info","message":"\u001b[36m🛡️  Security schemes: 0\u001b[39m","timestamp":"2025-08-12T19:56:55.865Z"}
+{"level":"info","message":"\u001b[34m🚀 Starting AppSpec compilation...\u001b[39m","timestamp":"2025-08-12T19:57:06.282Z"}
+{"level":"info","message":"[COMPILER] Starting AppSpec compilation","timestamp":"2025-08-12T19:57:06.285Z"}
+{"level":"info","message":"[COMPILER] Phase 1: Ingesting sources","timestamp":"2025-08-12T19:57:06.286Z"}
+{"level":"info","message":"[COMPILER] Phase 1 completed","timestamp":"2025-08-12T19:57:06.286Z","totalEndpoints":0}
+{"level":"info","message":"[COMPILER] Phase 2: Enriching AppSpec","timestamp":"2025-08-12T19:57:06.287Z"}
+{"level":"info","message":"[COMPILER] Phase 2 completed","timestamp":"2025-08-12T19:57:06.287Z"}
+{"level":"info","message":"[COMPILER] Phase 3: Normalizing AppSpec","timestamp":"2025-08-12T19:57:06.287Z"}
+{"level":"info","message":"[COMPILER] Phase 3 completed","timestamp":"2025-08-12T19:57:06.288Z"}
+{"level":"info","message":"[COMPILER] Phase 4: Validating AppSpec","timestamp":"2025-08-12T19:57:06.288Z"}
+{"level":"info","message":"[COMPILER] Phase 4 completed","timestamp":"2025-08-12T19:57:06.288Z"}
+{"endpoints":0,"level":"info","message":"[COMPILER] AppSpec compilation completed successfully","parameters":0,"security":0,"timestamp":"2025-08-12T19:57:06.289Z"}
+{"level":"info","message":"[COMPILER] AppSpec saved to ./appspec.json","timestamp":"2025-08-12T19:57:06.289Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec compiled successfully to ./appspec.json\u001b[39m","timestamp":"2025-08-12T19:57:06.289Z"}
+{"level":"info","message":"\u001b[36m📊 Endpoints: 0\u001b[39m","timestamp":"2025-08-12T19:57:06.290Z"}
+{"level":"info","message":"\u001b[36m🔧 Parameters: 0\u001b[39m","timestamp":"2025-08-12T19:57:06.290Z"}
+{"level":"info","message":"\u001b[36m🛡️  Security schemes: 0\u001b[39m","timestamp":"2025-08-12T19:57:06.290Z"}
+{"level":"info","message":"\u001b[34m🚀 Starting AppSpec compilation...\u001b[39m","timestamp":"2025-08-12T19:57:14.560Z"}
+{"level":"info","message":"[COMPILER] Starting AppSpec compilation","timestamp":"2025-08-12T19:57:14.563Z"}
+{"level":"info","message":"[COMPILER] Phase 1: Ingesting sources","timestamp":"2025-08-12T19:57:14.564Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Processing ./examples/sample-openapi.json","timestamp":"2025-08-12T19:57:14.564Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Ingesting from ./examples/sample-openapi.json","timestamp":"2025-08-12T19:57:14.564Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Extracted 6 endpoints","timestamp":"2025-08-12T19:57:14.698Z"}
+{"level":"info","message":"[COMPILER] Phase 1 completed","timestamp":"2025-08-12T19:57:14.699Z","totalEndpoints":6}
+{"level":"info","message":"[COMPILER] Phase 2: Enriching AppSpec","timestamp":"2025-08-12T19:57:14.699Z"}
+{"level":"info","message":"[COMPILER] Phase 2 completed","timestamp":"2025-08-12T19:57:14.700Z"}
+{"level":"info","message":"[COMPILER] Phase 3: Normalizing AppSpec","timestamp":"2025-08-12T19:57:14.700Z"}
+{"level":"info","message":"[COMPILER] Phase 3 completed","timestamp":"2025-08-12T19:57:14.700Z"}
+{"level":"info","message":"[COMPILER] Phase 4: Validating AppSpec","timestamp":"2025-08-12T19:57:14.701Z"}
+{"level":"info","message":"[COMPILER] Phase 4 completed","timestamp":"2025-08-12T19:57:14.701Z"}
+{"level":"debug","message":"Timing: AppSpec compilation took 138ms","timestamp":"2025-08-12T19:57:14.701Z"}
+{"endpoints":6,"level":"info","message":"[COMPILER] AppSpec compilation completed successfully","parameters":0,"security":2,"timestamp":"2025-08-12T19:57:14.701Z"}
+{"level":"info","message":"[COMPILER] AppSpec saved to ./demo/output/test.json","timestamp":"2025-08-12T19:57:14.702Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec compiled successfully to ./demo/output/test.json\u001b[39m","timestamp":"2025-08-12T19:57:14.702Z"}
+{"level":"info","message":"\u001b[36m📊 Endpoints: 6\u001b[39m","timestamp":"2025-08-12T19:57:14.702Z"}
+{"level":"info","message":"\u001b[36m🔧 Parameters: 0\u001b[39m","timestamp":"2025-08-12T19:57:14.702Z"}
+{"level":"info","message":"\u001b[36m🛡️  Security schemes: 2\u001b[39m","timestamp":"2025-08-12T19:57:14.702Z"}
+{"level":"info","message":"\u001b[34m🚀 Starting AppSpec compilation...\u001b[39m","timestamp":"2025-08-12T19:59:27.463Z"}
+{"level":"info","message":"[COMPILER] Starting AppSpec compilation","timestamp":"2025-08-12T19:59:27.467Z"}
+{"level":"info","message":"[COMPILER] Phase 1: Ingesting sources","timestamp":"2025-08-12T19:59:27.468Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Processing ./examples/sample-openapi.json","timestamp":"2025-08-12T19:59:27.468Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Ingesting from ./examples/sample-openapi.json","timestamp":"2025-08-12T19:59:27.468Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Extracted 6 endpoints","timestamp":"2025-08-12T19:59:27.601Z"}
+{"level":"info","message":"[COMPILER] Phase 1 completed","timestamp":"2025-08-12T19:59:27.602Z","totalEndpoints":6}
+{"level":"info","message":"[COMPILER] Phase 2: Enriching AppSpec","timestamp":"2025-08-12T19:59:27.603Z"}
+{"level":"info","message":"[COMPILER] Phase 2 completed","timestamp":"2025-08-12T19:59:27.603Z"}
+{"level":"info","message":"[COMPILER] Phase 3: Normalizing AppSpec","timestamp":"2025-08-12T19:59:27.603Z"}
+{"level":"info","message":"[COMPILER] Phase 3 completed","timestamp":"2025-08-12T19:59:27.604Z"}
+{"level":"info","message":"[COMPILER] Phase 4: Validating AppSpec","timestamp":"2025-08-12T19:59:27.604Z"}
+{"level":"info","message":"[COMPILER] Phase 4 completed","timestamp":"2025-08-12T19:59:27.604Z"}
+{"level":"debug","message":"Timing: AppSpec compilation took 137ms","timestamp":"2025-08-12T19:59:27.604Z"}
+{"endpoints":6,"level":"info","message":"[COMPILER] AppSpec compilation completed successfully","parameters":0,"security":2,"timestamp":"2025-08-12T19:59:27.605Z"}
+{"level":"info","message":"[COMPILER] AppSpec saved to ./demo/output/appspec.json","timestamp":"2025-08-12T19:59:27.605Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec compiled successfully to ./demo/output/appspec.json\u001b[39m","timestamp":"2025-08-12T19:59:27.605Z"}
+{"level":"info","message":"\u001b[36m📊 Endpoints: 6\u001b[39m","timestamp":"2025-08-12T19:59:27.605Z"}
+{"level":"info","message":"\u001b[36m🔧 Parameters: 0\u001b[39m","timestamp":"2025-08-12T19:59:27.605Z"}
+{"level":"info","message":"\u001b[36m🛡️  Security schemes: 2\u001b[39m","timestamp":"2025-08-12T19:59:27.606Z"}
+{"level":"info","message":"\u001b[34m🔍 Validating AppSpec...\u001b[39m","timestamp":"2025-08-12T19:59:27.783Z"}
+{"level":"info","message":"[VALIDATOR] Starting validation","timestamp":"2025-08-12T19:59:27.791Z"}
+{"level":"info","message":"[VALIDATOR] Validation completed - Valid: true, Coverage: 100%","timestamp":"2025-08-12T19:59:27.882Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec is valid\u001b[39m","timestamp":"2025-08-12T19:59:27.882Z"}
+{"level":"info","message":"\u001b[36m📊 Coverage: 100%\u001b[39m","timestamp":"2025-08-12T19:59:27.882Z"}

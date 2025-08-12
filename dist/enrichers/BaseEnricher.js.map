@@ -1,0 +1,1 @@
+{"version":3,"file":"BaseEnricher.js","sourceRoot":"","sources":["../../src/enrichers/BaseEnricher.ts"],"names":[],"mappings":";;;AAGA;;;GAGG;AACH,MAAsB,YAAY;IAGhC,YAAY,MAAwB;QAClC,IAAI,CAAC,MAAM,GAAG,MAAM,CAAC;IACvB,CAAC;IAiBD;;OAEG;IACI,WAAW;QAChB,OAAO,GAAG,CAAC;IACb,CAAC;CACF;AA5BD,oCA4BC"}

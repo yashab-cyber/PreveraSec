@@ -1,0 +1,351 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sample E-commerce API",
+    "version": "1.2.0",
+    "description": "A comprehensive e-commerce API with user management, product catalog, and order processing",
+    "contact": {
+      "name": "API Support",
+      "email": "api-support@example.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/v1",
+      "description": "Production server"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    },
+    {
+      "BearerAuth": []
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "List users",
+        "tags": ["users"],
+        "security": [{"BearerAuth": ["read:users"]}],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {"type": "integer", "minimum": 1, "maximum": 100},
+            "description": "Number of users to return"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "schema": {"type": "string", "format": "email"},
+            "description": "Filter by email address"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {"$ref": "#/components/schemas/User"}
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create user",
+        "tags": ["users"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"$ref": "#/components/schemas/CreateUser"}
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User created",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/User"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {"type": "string", "pattern": "^[0-9a-fA-F]{24}$"},
+          "description": "User ID"
+        }
+      ],
+      "get": {
+        "summary": "Get user by ID",
+        "tags": ["users"],
+        "security": [{"BearerAuth": ["read:users"]}],
+        "responses": {
+          "200": {
+            "description": "User details",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/User"}
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "summary": "List products",
+        "tags": ["products"],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {"type": "string"},
+            "description": "Product category"
+          },
+          {
+            "name": "price_min",
+            "in": "query",
+            "schema": {"type": "number", "minimum": 0},
+            "description": "Minimum price"
+          },
+          {
+            "name": "price_max",
+            "in": "query",
+            "schema": {"type": "number", "minimum": 0},
+            "description": "Maximum price"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {"$ref": "#/components/schemas/Product"}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "summary": "Create order",
+        "tags": ["orders"],
+        "security": [{"BearerAuth": ["write:orders"]}],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"$ref": "#/components/schemas/CreateOrder"}
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Order created",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/Order"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{orderId}/payment": {
+      "parameters": [
+        {
+          "name": "orderId",
+          "in": "path",
+          "required": true,
+          "schema": {"type": "string"},
+          "description": "Order ID"
+        }
+      ],
+      "post": {
+        "summary": "Process payment",
+        "tags": ["orders", "payments"],
+        "security": [{"BearerAuth": ["write:payments"]}],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"$ref": "#/components/schemas/PaymentRequest"}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Payment processed",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/PaymentResponse"}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "User": {
+        "type": "object",
+        "required": ["id", "email", "firstName", "lastName"],
+        "properties": {
+          "id": {"type": "string", "description": "User ID"},
+          "email": {"type": "string", "format": "email"},
+          "firstName": {"type": "string"},
+          "lastName": {"type": "string"},
+          "phone": {"type": "string", "pattern": "^\\+?[1-9]\\d{1,14}$"},
+          "address": {"$ref": "#/components/schemas/Address"},
+          "createdAt": {"type": "string", "format": "date-time"},
+          "updatedAt": {"type": "string", "format": "date-time"}
+        }
+      },
+      "CreateUser": {
+        "type": "object",
+        "required": ["email", "password", "firstName", "lastName"],
+        "properties": {
+          "email": {"type": "string", "format": "email"},
+          "password": {"type": "string", "minLength": 8},
+          "firstName": {"type": "string"},
+          "lastName": {"type": "string"},
+          "phone": {"type": "string"}
+        }
+      },
+      "Product": {
+        "type": "object",
+        "required": ["id", "name", "price", "category"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "description": {"type": "string"},
+          "price": {"type": "number", "minimum": 0},
+          "currency": {"type": "string", "enum": ["USD", "EUR", "GBP"]},
+          "category": {"type": "string"},
+          "inStock": {"type": "boolean"},
+          "imageUrl": {"type": "string", "format": "uri"}
+        }
+      },
+      "Order": {
+        "type": "object",
+        "required": ["id", "userId", "items", "total", "status"],
+        "properties": {
+          "id": {"type": "string"},
+          "userId": {"type": "string"},
+          "items": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/OrderItem"}
+          },
+          "total": {"type": "number", "minimum": 0},
+          "currency": {"type": "string"},
+          "status": {"type": "string", "enum": ["pending", "paid", "shipped", "delivered", "cancelled"]},
+          "createdAt": {"type": "string", "format": "date-time"}
+        }
+      },
+      "CreateOrder": {
+        "type": "object",
+        "required": ["items"],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/OrderItemRequest"}
+          }
+        }
+      },
+      "OrderItem": {
+        "type": "object",
+        "required": ["productId", "quantity", "price"],
+        "properties": {
+          "productId": {"type": "string"},
+          "quantity": {"type": "integer", "minimum": 1},
+          "price": {"type": "number", "minimum": 0}
+        }
+      },
+      "OrderItemRequest": {
+        "type": "object",
+        "required": ["productId", "quantity"],
+        "properties": {
+          "productId": {"type": "string"},
+          "quantity": {"type": "integer", "minimum": 1}
+        }
+      },
+      "PaymentRequest": {
+        "type": "object",
+        "required": ["amount", "currency", "paymentMethod"],
+        "properties": {
+          "amount": {"type": "number", "minimum": 0},
+          "currency": {"type": "string"},
+          "paymentMethod": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+              "type": {"type": "string", "enum": ["credit_card", "debit_card", "paypal"]},
+              "cardNumber": {"type": "string", "pattern": "^\\d{16}$"},
+              "expiryMonth": {"type": "integer", "minimum": 1, "maximum": 12},
+              "expiryYear": {"type": "integer"},
+              "cvv": {"type": "string", "pattern": "^\\d{3,4}$"},
+              "paypalEmail": {"type": "string", "format": "email"}
+            }
+          }
+        }
+      },
+      "PaymentResponse": {
+        "type": "object",
+        "required": ["transactionId", "status", "amount"],
+        "properties": {
+          "transactionId": {"type": "string"},
+          "status": {"type": "string", "enum": ["success", "failed", "pending"]},
+          "amount": {"type": "number"},
+          "currency": {"type": "string"},
+          "processedAt": {"type": "string", "format": "date-time"}
+        }
+      },
+      "Address": {
+        "type": "object",
+        "required": ["street", "city", "country", "zipCode"],
+        "properties": {
+          "street": {"type": "string"},
+          "city": {"type": "string"},
+          "state": {"type": "string"},
+          "country": {"type": "string"},
+          "zipCode": {"type": "string"}
+        }
+      }
+    }
+  }
+}

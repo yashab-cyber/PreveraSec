@@ -1,0 +1,1 @@
+{"version":3,"file":"BaseIngestor.js","sourceRoot":"","sources":["../../src/ingestors/BaseIngestor.ts"],"names":[],"mappings":";;;AAcA;;;GAGG;AACH,MAAsB,YAAY;IAGhC,YAAY,MAAwB;QAClC,IAAI,CAAC,MAAM,GAAG,MAAM,CAAC;IACvB,CAAC;IAsBD;;OAEG;IACO,iBAAiB,CAAC,OAAe;QACzC,OAAO,OAAO,CAAC;IACjB,CAAC;IAED;;OAEG;IACO,iBAAiB,CAAC,MAAuB;QACjD,OAAO,MAAM,CAAC;IAChB,CAAC;CACF;AAxCD,oCAwCC"}
