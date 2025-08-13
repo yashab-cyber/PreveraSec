@@ -123,3 +123,128 @@
 {"level":"info","message":"[VALIDATOR] Validation completed - Valid: true, Coverage: 100%","timestamp":"2025-08-12T19:59:27.882Z"}
 {"level":"info","message":"\u001b[32m✅ AppSpec is valid\u001b[39m","timestamp":"2025-08-12T19:59:27.882Z"}
 {"level":"info","message":"\u001b[36m📊 Coverage: 100%\u001b[39m","timestamp":"2025-08-12T19:59:27.882Z"}
+{"level":"info","message":"\u001b[34m🚀 Starting AppSpec compilation...\u001b[39m","timestamp":"2025-08-13T10:06:06.653Z"}
+{"level":"info","message":"[COMPILER] Starting AppSpec compilation","timestamp":"2025-08-13T10:06:06.657Z"}
+{"level":"info","message":"[COMPILER] Phase 1: Ingesting sources","timestamp":"2025-08-13T10:06:06.657Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Processing ./examples/sample-openapi.json","timestamp":"2025-08-13T10:06:06.658Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Ingesting from ./examples/sample-openapi.json","timestamp":"2025-08-13T10:06:06.658Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Extracted 6 endpoints","timestamp":"2025-08-13T10:06:06.795Z"}
+{"level":"info","message":"[COMPILER] Phase 1 completed","timestamp":"2025-08-13T10:06:06.797Z","totalEndpoints":6}
+{"level":"info","message":"[COMPILER] Phase 2: Enriching AppSpec","timestamp":"2025-08-13T10:06:06.797Z"}
+{"level":"info","message":"[COMPILER] Phase 2 completed","timestamp":"2025-08-13T10:06:06.798Z"}
+{"level":"info","message":"[COMPILER] Phase 3: Normalizing AppSpec","timestamp":"2025-08-13T10:06:06.798Z"}
+{"level":"info","message":"[COMPILER] Phase 3 completed","timestamp":"2025-08-13T10:06:06.799Z"}
+{"level":"info","message":"[COMPILER] Phase 4: Validating AppSpec","timestamp":"2025-08-13T10:06:06.799Z"}
+{"level":"info","message":"[COMPILER] Phase 4 completed","timestamp":"2025-08-13T10:06:06.799Z"}
+{"level":"debug","message":"Timing: AppSpec compilation took 142ms","timestamp":"2025-08-13T10:06:06.799Z"}
+{"endpoints":6,"level":"info","message":"[COMPILER] AppSpec compilation completed successfully","parameters":0,"security":2,"timestamp":"2025-08-13T10:06:06.799Z"}
+{"level":"info","message":"[COMPILER] AppSpec saved to ./demo/output/appspec.json","timestamp":"2025-08-13T10:06:06.800Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec compiled successfully to ./demo/output/appspec.json\u001b[39m","timestamp":"2025-08-13T10:06:06.800Z"}
+{"level":"info","message":"\u001b[36m📊 Endpoints: 6\u001b[39m","timestamp":"2025-08-13T10:06:06.800Z"}
+{"level":"info","message":"\u001b[36m🔧 Parameters: 0\u001b[39m","timestamp":"2025-08-13T10:06:06.800Z"}
+{"level":"info","message":"\u001b[36m🛡️  Security schemes: 2\u001b[39m","timestamp":"2025-08-13T10:06:06.801Z"}
+{"level":"info","message":"\u001b[34m🔍 Validating AppSpec...\u001b[39m","timestamp":"2025-08-13T10:06:06.997Z"}
+{"level":"info","message":"[VALIDATOR] Starting validation","timestamp":"2025-08-13T10:06:07.003Z"}
+{"level":"info","message":"[VALIDATOR] Validation completed - Valid: true, Coverage: 100%","timestamp":"2025-08-13T10:06:07.099Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec is valid\u001b[39m","timestamp":"2025-08-13T10:06:07.100Z"}
+{"level":"info","message":"\u001b[36m📊 Coverage: 100%\u001b[39m","timestamp":"2025-08-13T10:06:07.100Z"}
+{"level":"info","message":"\u001b[34m🛡️  Starting DAST scan on https://httpbin.org...\u001b[39m","timestamp":"2025-08-13T10:06:24.801Z"}
+{"level":"info","message":"[DAST] Starting DAST scan","target":"https://httpbin.org","timestamp":"2025-08-13T10:06:24.805Z"}
+{"level":"info","message":"[DAST] Testing GET /users","timestamp":"2025-08-13T10:06:24.806Z"}
+{"level":"info","message":"[DAST] Testing POST /users","timestamp":"2025-08-13T10:06:24.846Z"}
+{"level":"info","message":"[DAST] Testing GET /users/:userId","timestamp":"2025-08-13T10:06:24.848Z"}
+{"level":"info","message":"[DAST] Testing GET /products","timestamp":"2025-08-13T10:06:24.849Z"}
+{"level":"info","message":"[DAST] Testing POST /orders","timestamp":"2025-08-13T10:06:24.851Z"}
+{"level":"info","message":"[DAST] Testing POST /orders/:orderId/payment","timestamp":"2025-08-13T10:06:24.852Z"}
+{"coverage":100,"duration":26388,"level":"info","message":"[DAST] DAST scan completed","timestamp":"2025-08-13T10:06:51.194Z","vulnerabilities":6}
+{"level":"info","message":"[DAST] Results saved to ./scan-results.json","timestamp":"2025-08-13T10:06:51.196Z"}
+{"level":"info","message":"\u001b[32m✅ Scan completed: ./scan-results.json\u001b[39m","timestamp":"2025-08-13T10:06:51.196Z"}
+{"level":"info","message":"\u001b[36m🔍 Tests run: 42\u001b[39m","timestamp":"2025-08-13T10:06:51.196Z"}
+{"level":"info","message":"\u001b[36m⚠️  Vulnerabilities: 6\u001b[39m","timestamp":"2025-08-13T10:06:51.196Z"}
+{"level":"info","message":"\u001b[36m🚨 Critical: 0\u001b[39m","timestamp":"2025-08-13T10:06:51.197Z"}
+{"level":"info","message":"\u001b[34m🔄 Generating diff report...\u001b[39m","timestamp":"2025-08-13T10:07:11.197Z"}
+{"level":"info","message":"Starting spec vs runtime comparison","timestamp":"2025-08-13T10:07:11.200Z"}
+{"differences":7,"level":"info","message":"Comparison completed","missingEndpoints":6,"newEndpoints":1,"timestamp":"2025-08-13T10:07:40.187Z"}
+{"level":"info","message":"HTML report generated: ./diff-report.html","timestamp":"2025-08-13T10:07:40.187Z"}
+{"level":"info","message":"\u001b[32m✅ Diff report generated: ./diff-report.html\u001b[39m","timestamp":"2025-08-13T10:07:40.188Z"}
+{"level":"info","message":"\u001b[36m📊 Differences found: 7\u001b[39m","timestamp":"2025-08-13T10:07:40.188Z"}
+{"level":"info","message":"\u001b[36m➕ New endpoints: 1\u001b[39m","timestamp":"2025-08-13T10:07:40.188Z"}
+{"level":"info","message":"\u001b[36m➖ Missing endpoints: 6\u001b[39m","timestamp":"2025-08-13T10:07:40.189Z"}
+{"level":"info","message":"\u001b[34m🌐 Starting PreveraSec server on port 3000...\u001b[39m","timestamp":"2025-08-13T10:07:49.012Z"}
+{"level":"info","message":"Starting PreveraSec server on port 3000","timestamp":"2025-08-13T10:07:49.016Z"}
+{"level":"info","message":"Server started on port 3000","timestamp":"2025-08-13T10:07:49.117Z"}
+{"level":"info","message":"\u001b[32m✅ Server started at http://localhost:3000\u001b[39m","timestamp":"2025-08-13T10:07:49.117Z"}
+{"level":"info","message":"\u001b[36m📊 Web dashboard available at /dashboard\u001b[39m","timestamp":"2025-08-13T10:07:49.117Z"}
+{"level":"info","message":"\u001b[36m🔧 API documentation at /api-docs\u001b[39m","timestamp":"2025-08-13T10:07:49.118Z"}
+{"level":"info","message":"\u001b[34m🚀 Starting AppSpec compilation...\u001b[39m","timestamp":"2025-08-13T10:09:22.209Z"}
+{"level":"info","message":"[COMPILER] Starting AppSpec compilation","timestamp":"2025-08-13T10:09:22.212Z"}
+{"level":"info","message":"[COMPILER] Phase 1: Ingesting sources","timestamp":"2025-08-13T10:09:22.213Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Processing ./examples/sample-openapi.json","timestamp":"2025-08-13T10:09:22.213Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Ingesting from ./examples/sample-openapi.json","timestamp":"2025-08-13T10:09:22.213Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Extracted 6 endpoints","timestamp":"2025-08-13T10:09:22.365Z"}
+{"level":"info","message":"[COMPILER] Phase 1 completed","timestamp":"2025-08-13T10:09:22.366Z","totalEndpoints":6}
+{"level":"info","message":"[COMPILER] Phase 2: Enriching AppSpec","timestamp":"2025-08-13T10:09:22.366Z"}
+{"level":"info","message":"[COMPILER] Phase 2 completed","timestamp":"2025-08-13T10:09:22.367Z"}
+{"level":"info","message":"[COMPILER] Phase 3: Normalizing AppSpec","timestamp":"2025-08-13T10:09:22.367Z"}
+{"level":"info","message":"[COMPILER] Phase 3 completed","timestamp":"2025-08-13T10:09:22.367Z"}
+{"level":"info","message":"[COMPILER] Phase 4: Validating AppSpec","timestamp":"2025-08-13T10:09:22.368Z"}
+{"level":"info","message":"[COMPILER] Phase 4 completed","timestamp":"2025-08-13T10:09:22.368Z"}
+{"level":"debug","message":"Timing: AppSpec compilation took 156ms","timestamp":"2025-08-13T10:09:22.368Z"}
+{"endpoints":6,"level":"info","message":"[COMPILER] AppSpec compilation completed successfully","parameters":0,"security":2,"timestamp":"2025-08-13T10:09:22.368Z"}
+{"level":"info","message":"[COMPILER] AppSpec saved to ./demo/output/appspec.json","timestamp":"2025-08-13T10:09:22.369Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec compiled successfully to ./demo/output/appspec.json\u001b[39m","timestamp":"2025-08-13T10:09:22.369Z"}
+{"level":"info","message":"\u001b[36m📊 Endpoints: 6\u001b[39m","timestamp":"2025-08-13T10:09:22.369Z"}
+{"level":"info","message":"\u001b[36m🔧 Parameters: 0\u001b[39m","timestamp":"2025-08-13T10:09:22.369Z"}
+{"level":"info","message":"\u001b[36m🛡️  Security schemes: 2\u001b[39m","timestamp":"2025-08-13T10:09:22.369Z"}
+{"level":"info","message":"\u001b[34m🔍 Validating AppSpec...\u001b[39m","timestamp":"2025-08-13T10:09:22.561Z"}
+{"level":"info","message":"[VALIDATOR] Starting validation","timestamp":"2025-08-13T10:09:22.567Z"}
+{"level":"info","message":"[VALIDATOR] Validation completed - Valid: true, Coverage: 100%","timestamp":"2025-08-13T10:09:22.655Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec is valid\u001b[39m","timestamp":"2025-08-13T10:09:22.655Z"}
+{"level":"info","message":"\u001b[36m📊 Coverage: 100%\u001b[39m","timestamp":"2025-08-13T10:09:22.656Z"}
+{"level":"info","message":"\u001b[34m🚀 Starting AppSpec compilation...\u001b[39m","timestamp":"2025-08-13T10:11:25.309Z"}
+{"level":"info","message":"[COMPILER] Starting AppSpec compilation","timestamp":"2025-08-13T10:11:25.313Z"}
+{"level":"info","message":"[COMPILER] Phase 1: Ingesting sources","timestamp":"2025-08-13T10:11:25.313Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Processing ./examples/sample-openapi.json","timestamp":"2025-08-13T10:11:25.314Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Ingesting from ./examples/sample-openapi.json","timestamp":"2025-08-13T10:11:25.314Z"}
+{"level":"info","message":"[INGESTOR:OPENAPI] Extracted 6 endpoints","timestamp":"2025-08-13T10:11:25.456Z"}
+{"level":"info","message":"[COMPILER] Phase 1 completed","timestamp":"2025-08-13T10:11:25.457Z","totalEndpoints":6}
+{"level":"info","message":"[COMPILER] Phase 2: Enriching AppSpec","timestamp":"2025-08-13T10:11:25.457Z"}
+{"level":"info","message":"[COMPILER] Phase 2 completed","timestamp":"2025-08-13T10:11:25.457Z"}
+{"level":"info","message":"[COMPILER] Phase 3: Normalizing AppSpec","timestamp":"2025-08-13T10:11:25.458Z"}
+{"level":"info","message":"[COMPILER] Phase 3 completed","timestamp":"2025-08-13T10:11:25.458Z"}
+{"level":"info","message":"[COMPILER] Phase 4: Validating AppSpec","timestamp":"2025-08-13T10:11:25.458Z"}
+{"level":"info","message":"[COMPILER] Phase 4 completed","timestamp":"2025-08-13T10:11:25.458Z"}
+{"level":"debug","message":"Timing: AppSpec compilation took 146ms","timestamp":"2025-08-13T10:11:25.459Z"}
+{"endpoints":6,"level":"info","message":"[COMPILER] AppSpec compilation completed successfully","parameters":0,"security":2,"timestamp":"2025-08-13T10:11:25.459Z"}
+{"level":"info","message":"[COMPILER] AppSpec saved to ./demo/output/appspec.json","timestamp":"2025-08-13T10:11:25.459Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec compiled successfully to ./demo/output/appspec.json\u001b[39m","timestamp":"2025-08-13T10:11:25.460Z"}
+{"level":"info","message":"\u001b[36m📊 Endpoints: 6\u001b[39m","timestamp":"2025-08-13T10:11:25.460Z"}
+{"level":"info","message":"\u001b[36m🔧 Parameters: 0\u001b[39m","timestamp":"2025-08-13T10:11:25.460Z"}
+{"level":"info","message":"\u001b[36m🛡️  Security schemes: 2\u001b[39m","timestamp":"2025-08-13T10:11:25.460Z"}
+{"level":"info","message":"\u001b[34m🔍 Validating AppSpec...\u001b[39m","timestamp":"2025-08-13T10:11:25.647Z"}
+{"level":"info","message":"[VALIDATOR] Starting validation","timestamp":"2025-08-13T10:11:25.653Z"}
+{"level":"info","message":"[VALIDATOR] Validation completed - Valid: true, Coverage: 100%","timestamp":"2025-08-13T10:11:25.740Z"}
+{"level":"info","message":"\u001b[32m✅ AppSpec is valid\u001b[39m","timestamp":"2025-08-13T10:11:25.740Z"}
+{"level":"info","message":"\u001b[36m📊 Coverage: 100%\u001b[39m","timestamp":"2025-08-13T10:11:25.741Z"}
+{"level":"info","message":"\u001b[34m🔄 Generating diff report...\u001b[39m","timestamp":"2025-08-13T10:12:04.633Z"}
+{"level":"info","message":"Starting spec vs runtime comparison","timestamp":"2025-08-13T10:12:04.636Z"}
+{"differences":7,"level":"info","message":"Comparison completed","missingEndpoints":6,"newEndpoints":1,"timestamp":"2025-08-13T10:12:33.426Z"}
+{"level":"info","message":"HTML report generated: ./diff-report.html","timestamp":"2025-08-13T10:12:33.427Z"}
+{"level":"info","message":"\u001b[32m✅ Diff report generated: ./diff-report.html\u001b[39m","timestamp":"2025-08-13T10:12:33.427Z"}
+{"level":"info","message":"\u001b[36m📊 Differences found: 7\u001b[39m","timestamp":"2025-08-13T10:12:33.427Z"}
+{"level":"info","message":"\u001b[36m➕ New endpoints: 1\u001b[39m","timestamp":"2025-08-13T10:12:33.428Z"}
+{"level":"info","message":"\u001b[36m➖ Missing endpoints: 6\u001b[39m","timestamp":"2025-08-13T10:12:33.428Z"}
+{"level":"info","message":"\u001b[34m🛡️  Starting DAST scan on https://httpbin.org...\u001b[39m","timestamp":"2025-08-13T10:12:58.447Z"}
+{"level":"info","message":"[DAST] Starting DAST scan","target":"https://httpbin.org","timestamp":"2025-08-13T10:12:58.451Z"}
+{"level":"info","message":"[DAST] Testing GET /users","timestamp":"2025-08-13T10:12:58.452Z"}
+{"level":"info","message":"[DAST] Testing POST /users","timestamp":"2025-08-13T10:12:58.491Z"}
+{"level":"info","message":"[DAST] Testing GET /users/:userId","timestamp":"2025-08-13T10:12:58.494Z"}
+{"level":"info","message":"[DAST] Testing GET /products","timestamp":"2025-08-13T10:12:58.495Z"}
+{"level":"info","message":"[DAST] Testing POST /orders","timestamp":"2025-08-13T10:12:58.496Z"}
+{"level":"info","message":"[DAST] Testing POST /orders/:orderId/payment","timestamp":"2025-08-13T10:12:58.498Z"}
+{"coverage":100,"duration":32144,"level":"info","message":"[DAST] DAST scan completed","timestamp":"2025-08-13T10:13:30.595Z","vulnerabilities":6}
+{"level":"info","message":"[DAST] Results saved to ./scan-results.json","timestamp":"2025-08-13T10:13:30.597Z"}
+{"level":"info","message":"\u001b[32m✅ Scan completed: ./scan-results.json\u001b[39m","timestamp":"2025-08-13T10:13:30.597Z"}
+{"level":"info","message":"\u001b[36m🔍 Tests run: 42\u001b[39m","timestamp":"2025-08-13T10:13:30.597Z"}
+{"level":"info","message":"\u001b[36m⚠️  Vulnerabilities: 6\u001b[39m","timestamp":"2025-08-13T10:13:30.597Z"}
+{"level":"info","message":"\u001b[36m🚨 Critical: 0\u001b[39m","timestamp":"2025-08-13T10:13:30.597Z"}

@@ -1,0 +1,586 @@
+{
+  "target": "https://httpbin.org",
+  "startTime": "2025-08-13T10:12:58.451Z",
+  "endTime": "2025-08-13T10:13:30.595Z",
+  "summary": {
+    "testsRun": 42,
+    "vulnerabilities": [
+      {
+        "id": "RATE-2",
+        "severity": "low",
+        "type": "Missing Rate Limiting",
+        "endpoint": "/users/:userId",
+        "method": "GET",
+        "description": "Endpoint does not implement rate limiting",
+        "impact": "May be vulnerable to abuse and DoS attacks",
+        "remediation": "Implement proper rate limiting mechanisms",
+        "evidence": {
+          "requests": 10,
+          "rateLimited": false
+        },
+        "cwe": "CWE-770",
+        "owasp": "A04:2021 - Insecure Design"
+      },
+      {
+        "id": "RATE-1",
+        "severity": "low",
+        "type": "Missing Rate Limiting",
+        "endpoint": "/users",
+        "method": "POST",
+        "description": "Endpoint does not implement rate limiting",
+        "impact": "May be vulnerable to abuse and DoS attacks",
+        "remediation": "Implement proper rate limiting mechanisms",
+        "evidence": {
+          "requests": 10,
+          "rateLimited": false
+        },
+        "cwe": "CWE-770",
+        "owasp": "A04:2021 - Insecure Design"
+      },
+      {
+        "id": "RATE-3",
+        "severity": "low",
+        "type": "Missing Rate Limiting",
+        "endpoint": "/orders",
+        "method": "POST",
+        "description": "Endpoint does not implement rate limiting",
+        "impact": "May be vulnerable to abuse and DoS attacks",
+        "remediation": "Implement proper rate limiting mechanisms",
+        "evidence": {
+          "requests": 10,
+          "rateLimited": false
+        },
+        "cwe": "CWE-770",
+        "owasp": "A04:2021 - Insecure Design"
+      },
+      {
+        "id": "RATE-4",
+        "severity": "low",
+        "type": "Missing Rate Limiting",
+        "endpoint": "/orders/:orderId/payment",
+        "method": "POST",
+        "description": "Endpoint does not implement rate limiting",
+        "impact": "May be vulnerable to abuse and DoS attacks",
+        "remediation": "Implement proper rate limiting mechanisms",
+        "evidence": {
+          "requests": 10,
+          "rateLimited": false
+        },
+        "cwe": "CWE-770",
+        "owasp": "A04:2021 - Insecure Design"
+      },
+      {
+        "id": "RATE-5",
+        "severity": "low",
+        "type": "Missing Rate Limiting",
+        "endpoint": "/users",
+        "method": "GET",
+        "description": "Endpoint does not implement rate limiting",
+        "impact": "May be vulnerable to abuse and DoS attacks",
+        "remediation": "Implement proper rate limiting mechanisms",
+        "evidence": {
+          "requests": 10,
+          "rateLimited": false
+        },
+        "cwe": "CWE-770",
+        "owasp": "A04:2021 - Insecure Design"
+      },
+      {
+        "id": "RATE-6",
+        "severity": "low",
+        "type": "Missing Rate Limiting",
+        "endpoint": "/products",
+        "method": "GET",
+        "description": "Endpoint does not implement rate limiting",
+        "impact": "May be vulnerable to abuse and DoS attacks",
+        "remediation": "Implement proper rate limiting mechanisms",
+        "evidence": {
+          "requests": 10,
+          "rateLimited": false
+        },
+        "cwe": "CWE-770",
+        "owasp": "A04:2021 - Insecure Design"
+      }
+    ],
+    "coverage": 0,
+    "duration": 32144
+  },
+  "vulnerabilities": [
+    {
+      "id": "RATE-2",
+      "severity": "low",
+      "type": "Missing Rate Limiting",
+      "endpoint": "/users/:userId",
+      "method": "GET",
+      "description": "Endpoint does not implement rate limiting",
+      "impact": "May be vulnerable to abuse and DoS attacks",
+      "remediation": "Implement proper rate limiting mechanisms",
+      "evidence": {
+        "requests": 10,
+        "rateLimited": false
+      },
+      "cwe": "CWE-770",
+      "owasp": "A04:2021 - Insecure Design"
+    },
+    {
+      "id": "RATE-1",
+      "severity": "low",
+      "type": "Missing Rate Limiting",
+      "endpoint": "/users",
+      "method": "POST",
+      "description": "Endpoint does not implement rate limiting",
+      "impact": "May be vulnerable to abuse and DoS attacks",
+      "remediation": "Implement proper rate limiting mechanisms",
+      "evidence": {
+        "requests": 10,
+        "rateLimited": false
+      },
+      "cwe": "CWE-770",
+      "owasp": "A04:2021 - Insecure Design"
+    },
+    {
+      "id": "RATE-3",
+      "severity": "low",
+      "type": "Missing Rate Limiting",
+      "endpoint": "/orders",
+      "method": "POST",
+      "description": "Endpoint does not implement rate limiting",
+      "impact": "May be vulnerable to abuse and DoS attacks",
+      "remediation": "Implement proper rate limiting mechanisms",
+      "evidence": {
+        "requests": 10,
+        "rateLimited": false
+      },
+      "cwe": "CWE-770",
+      "owasp": "A04:2021 - Insecure Design"
+    },
+    {
+      "id": "RATE-4",
+      "severity": "low",
+      "type": "Missing Rate Limiting",
+      "endpoint": "/orders/:orderId/payment",
+      "method": "POST",
+      "description": "Endpoint does not implement rate limiting",
+      "impact": "May be vulnerable to abuse and DoS attacks",
+      "remediation": "Implement proper rate limiting mechanisms",
+      "evidence": {
+        "requests": 10,
+        "rateLimited": false
+      },
+      "cwe": "CWE-770",
+      "owasp": "A04:2021 - Insecure Design"
+    },
+    {
+      "id": "RATE-5",
+      "severity": "low",
+      "type": "Missing Rate Limiting",
+      "endpoint": "/users",
+      "method": "GET",
+      "description": "Endpoint does not implement rate limiting",
+      "impact": "May be vulnerable to abuse and DoS attacks",
+      "remediation": "Implement proper rate limiting mechanisms",
+      "evidence": {
+        "requests": 10,
+        "rateLimited": false
+      },
+      "cwe": "CWE-770",
+      "owasp": "A04:2021 - Insecure Design"
+    },
+    {
+      "id": "RATE-6",
+      "severity": "low",
+      "type": "Missing Rate Limiting",
+      "endpoint": "/products",
+      "method": "GET",
+      "description": "Endpoint does not implement rate limiting",
+      "impact": "May be vulnerable to abuse and DoS attacks",
+      "remediation": "Implement proper rate limiting mechanisms",
+      "evidence": {
+        "requests": 10,
+        "rateLimited": false
+      },
+      "cwe": "CWE-770",
+      "owasp": "A04:2021 - Insecure Design"
+    }
+  ],
+  "coverage": {
+    "totalEndpoints": 6,
+    "testedEndpoints": 6,
+    "skippedEndpoints": [],
+    "percentage": 100
+  },
+  "endpoints": [
+    {
+      "endpoint": "/users/:userId",
+      "method": "GET",
+      "status": "tested",
+      "responseTime": 852,
+      "vulnerabilities": [
+        {
+          "id": "RATE-2",
+          "severity": "low",
+          "type": "Missing Rate Limiting",
+          "endpoint": "/users/:userId",
+          "method": "GET",
+          "description": "Endpoint does not implement rate limiting",
+          "impact": "May be vulnerable to abuse and DoS attacks",
+          "remediation": "Implement proper rate limiting mechanisms",
+          "evidence": {
+            "requests": 10,
+            "rateLimited": false
+          },
+          "cwe": "CWE-770",
+          "owasp": "A04:2021 - Insecure Design"
+        }
+      ],
+      "tests": [
+        {
+          "name": "SQL Injection",
+          "passed": true,
+          "description": "Tests for SQL injection vulnerabilities in parameters"
+        },
+        {
+          "name": "Cross-Site Scripting (XSS)",
+          "passed": true,
+          "description": "Tests for XSS vulnerabilities in parameters"
+        },
+        {
+          "name": "Authentication Bypass",
+          "passed": true,
+          "description": "Tests for authentication bypass vulnerabilities"
+        },
+        {
+          "name": "Parameter Manipulation",
+          "passed": true,
+          "description": "Tests for parameter manipulation vulnerabilities"
+        },
+        {
+          "name": "Rate Limiting",
+          "passed": false,
+          "description": "Tests for proper rate limiting implementation"
+        },
+        {
+          "name": "Sensitive Data Exposure",
+          "passed": true,
+          "description": "Tests for exposure of sensitive information"
+        },
+        {
+          "name": "Cross-Site Request Forgery (CSRF)",
+          "passed": true,
+          "description": "Tests for CSRF protection (Not applicable for read-only operations)"
+        }
+      ],
+      "statusCode": 404
+    },
+    {
+      "endpoint": "/users",
+      "method": "POST",
+      "status": "tested",
+      "responseTime": 965,
+      "vulnerabilities": [
+        {
+          "id": "RATE-1",
+          "severity": "low",
+          "type": "Missing Rate Limiting",
+          "endpoint": "/users",
+          "method": "POST",
+          "description": "Endpoint does not implement rate limiting",
+          "impact": "May be vulnerable to abuse and DoS attacks",
+          "remediation": "Implement proper rate limiting mechanisms",
+          "evidence": {
+            "requests": 10,
+            "rateLimited": false
+          },
+          "cwe": "CWE-770",
+          "owasp": "A04:2021 - Insecure Design"
+        }
+      ],
+      "tests": [
+        {
+          "name": "SQL Injection",
+          "passed": true,
+          "description": "Tests for SQL injection vulnerabilities in parameters (No parameters to test)"
+        },
+        {
+          "name": "Cross-Site Scripting (XSS)",
+          "passed": true,
+          "description": "Tests for XSS vulnerabilities in parameters"
+        },
+        {
+          "name": "Authentication Bypass",
+          "passed": true,
+          "description": "Tests for authentication bypass vulnerabilities"
+        },
+        {
+          "name": "Parameter Manipulation",
+          "passed": true,
+          "description": "Tests for parameter manipulation vulnerabilities"
+        },
+        {
+          "name": "Rate Limiting",
+          "passed": false,
+          "description": "Tests for proper rate limiting implementation"
+        },
+        {
+          "name": "Sensitive Data Exposure",
+          "passed": true,
+          "description": "Tests for exposure of sensitive information"
+        },
+        {
+          "name": "Cross-Site Request Forgery (CSRF)",
+          "passed": true,
+          "description": "Tests for CSRF protection"
+        }
+      ],
+      "statusCode": 404
+    },
+    {
+      "endpoint": "/orders",
+      "method": "POST",
+      "status": "tested",
+      "responseTime": 959,
+      "vulnerabilities": [
+        {
+          "id": "RATE-3",
+          "severity": "low",
+          "type": "Missing Rate Limiting",
+          "endpoint": "/orders",
+          "method": "POST",
+          "description": "Endpoint does not implement rate limiting",
+          "impact": "May be vulnerable to abuse and DoS attacks",
+          "remediation": "Implement proper rate limiting mechanisms",
+          "evidence": {
+            "requests": 10,
+            "rateLimited": false
+          },
+          "cwe": "CWE-770",
+          "owasp": "A04:2021 - Insecure Design"
+        }
+      ],
+      "tests": [
+        {
+          "name": "SQL Injection",
+          "passed": true,
+          "description": "Tests for SQL injection vulnerabilities in parameters (No parameters to test)"
+        },
+        {
+          "name": "Cross-Site Scripting (XSS)",
+          "passed": true,
+          "description": "Tests for XSS vulnerabilities in parameters"
+        },
+        {
+          "name": "Authentication Bypass",
+          "passed": true,
+          "description": "Tests for authentication bypass vulnerabilities"
+        },
+        {
+          "name": "Parameter Manipulation",
+          "passed": true,
+          "description": "Tests for parameter manipulation vulnerabilities"
+        },
+        {
+          "name": "Rate Limiting",
+          "passed": false,
+          "description": "Tests for proper rate limiting implementation"
+        },
+        {
+          "name": "Sensitive Data Exposure",
+          "passed": true,
+          "description": "Tests for exposure of sensitive information"
+        },
+        {
+          "name": "Cross-Site Request Forgery (CSRF)",
+          "passed": true,
+          "description": "Tests for CSRF protection"
+        }
+      ],
+      "statusCode": 404
+    },
+    {
+      "endpoint": "/orders/:orderId/payment",
+      "method": "POST",
+      "status": "tested",
+      "responseTime": 5946,
+      "vulnerabilities": [
+        {
+          "id": "RATE-4",
+          "severity": "low",
+          "type": "Missing Rate Limiting",
+          "endpoint": "/orders/:orderId/payment",
+          "method": "POST",
+          "description": "Endpoint does not implement rate limiting",
+          "impact": "May be vulnerable to abuse and DoS attacks",
+          "remediation": "Implement proper rate limiting mechanisms",
+          "evidence": {
+            "requests": 10,
+            "rateLimited": false
+          },
+          "cwe": "CWE-770",
+          "owasp": "A04:2021 - Insecure Design"
+        }
+      ],
+      "tests": [
+        {
+          "name": "SQL Injection",
+          "passed": true,
+          "description": "Tests for SQL injection vulnerabilities in parameters"
+        },
+        {
+          "name": "Cross-Site Scripting (XSS)",
+          "passed": true,
+          "description": "Tests for XSS vulnerabilities in parameters"
+        },
+        {
+          "name": "Authentication Bypass",
+          "passed": true,
+          "description": "Tests for authentication bypass vulnerabilities"
+        },
+        {
+          "name": "Parameter Manipulation",
+          "passed": true,
+          "description": "Tests for parameter manipulation vulnerabilities"
+        },
+        {
+          "name": "Rate Limiting",
+          "passed": false,
+          "description": "Tests for proper rate limiting implementation"
+        },
+        {
+          "name": "Sensitive Data Exposure",
+          "passed": true,
+          "description": "Tests for exposure of sensitive information"
+        },
+        {
+          "name": "Cross-Site Request Forgery (CSRF)",
+          "passed": true,
+          "description": "Tests for CSRF protection"
+        }
+      ],
+      "statusCode": 404
+    },
+    {
+      "endpoint": "/users",
+      "method": "GET",
+      "status": "tested",
+      "responseTime": 857,
+      "vulnerabilities": [
+        {
+          "id": "RATE-5",
+          "severity": "low",
+          "type": "Missing Rate Limiting",
+          "endpoint": "/users",
+          "method": "GET",
+          "description": "Endpoint does not implement rate limiting",
+          "impact": "May be vulnerable to abuse and DoS attacks",
+          "remediation": "Implement proper rate limiting mechanisms",
+          "evidence": {
+            "requests": 10,
+            "rateLimited": false
+          },
+          "cwe": "CWE-770",
+          "owasp": "A04:2021 - Insecure Design"
+        }
+      ],
+      "tests": [
+        {
+          "name": "SQL Injection",
+          "passed": true,
+          "description": "Tests for SQL injection vulnerabilities in parameters"
+        },
+        {
+          "name": "Cross-Site Scripting (XSS)",
+          "passed": true,
+          "description": "Tests for XSS vulnerabilities in parameters"
+        },
+        {
+          "name": "Authentication Bypass",
+          "passed": true,
+          "description": "Tests for authentication bypass vulnerabilities"
+        },
+        {
+          "name": "Parameter Manipulation",
+          "passed": true,
+          "description": "Tests for parameter manipulation vulnerabilities"
+        },
+        {
+          "name": "Rate Limiting",
+          "passed": false,
+          "description": "Tests for proper rate limiting implementation"
+        },
+        {
+          "name": "Sensitive Data Exposure",
+          "passed": true,
+          "description": "Tests for exposure of sensitive information"
+        },
+        {
+          "name": "Cross-Site Request Forgery (CSRF)",
+          "passed": true,
+          "description": "Tests for CSRF protection (Not applicable for read-only operations)"
+        }
+      ],
+      "statusCode": 404
+    },
+    {
+      "endpoint": "/products",
+      "method": "GET",
+      "status": "tested",
+      "responseTime": 1154,
+      "vulnerabilities": [
+        {
+          "id": "RATE-6",
+          "severity": "low",
+          "type": "Missing Rate Limiting",
+          "endpoint": "/products",
+          "method": "GET",
+          "description": "Endpoint does not implement rate limiting",
+          "impact": "May be vulnerable to abuse and DoS attacks",
+          "remediation": "Implement proper rate limiting mechanisms",
+          "evidence": {
+            "requests": 10,
+            "rateLimited": false
+          },
+          "cwe": "CWE-770",
+          "owasp": "A04:2021 - Insecure Design"
+        }
+      ],
+      "tests": [
+        {
+          "name": "SQL Injection",
+          "passed": true,
+          "description": "Tests for SQL injection vulnerabilities in parameters"
+        },
+        {
+          "name": "Cross-Site Scripting (XSS)",
+          "passed": true,
+          "description": "Tests for XSS vulnerabilities in parameters"
+        },
+        {
+          "name": "Authentication Bypass",
+          "passed": true,
+          "description": "Tests for authentication bypass vulnerabilities"
+        },
+        {
+          "name": "Parameter Manipulation",
+          "passed": true,
+          "description": "Tests for parameter manipulation vulnerabilities"
+        },
+        {
+          "name": "Rate Limiting",
+          "passed": false,
+          "description": "Tests for proper rate limiting implementation"
+        },
+        {
+          "name": "Sensitive Data Exposure",
+          "passed": true,
+          "description": "Tests for exposure of sensitive information"
+        },
+        {
+          "name": "Cross-Site Request Forgery (CSRF)",
+          "passed": true,
+          "description": "Tests for CSRF protection (Not applicable for read-only operations)"
+        }
+      ],
+      "statusCode": 404
+    }
+  ]
+}

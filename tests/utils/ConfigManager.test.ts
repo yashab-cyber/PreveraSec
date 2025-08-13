@@ -1,4 +1,4 @@
-import { ConfigManager } from '../src/utils/ConfigManager';
+import { ConfigManager } from '../../src/utils/ConfigManager';
 
 describe('ConfigManager', () => {
   beforeEach(() => {
