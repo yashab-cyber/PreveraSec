@@ -1,5 +1,5 @@
 import * as winston from 'winston';
-import chalk from 'chalk';
+import * as chalk from 'chalk';
 
 /**
  * Centralized logging utility for PreveraSec
@@ -37,7 +37,7 @@ export class Logger {
           winston.format.colorize(),
           winston.format.simple(),
           winston.format.printf(({ level, message, timestamp, ...meta }) => {
-            const ts = chalk.gray(`[${timestamp}]`);
+            const ts = `[${timestamp}]`;
             const metaStr = Object.keys(meta).length ? ` ${JSON.stringify(meta)}` : '';
             return `${ts} ${level}: ${message}${metaStr}`;
           })
@@ -89,19 +89,19 @@ export class Logger {
 
   // Convenience methods with colored output for CLI
   public success(message: string): void {
-    console.log(chalk.green('✓ ' + message));
+    console.log((chalk as any).green('✓ ' + message));
   }
 
   public warning(message: string): void {
-    console.log(chalk.yellow('⚠ ' + message));
+    console.log((chalk as any).yellow('⚠ ' + message));
   }
 
   public failure(message: string): void {
-    console.log(chalk.red('✗ ' + message));
+    console.log((chalk as any).red('✗ ' + message));
   }
 
   public progress(message: string): void {
-    console.log(chalk.blue('⚡ ' + message));
+    console.log((chalk as any).blue('⚡ ' + message));
   }
 
   // Structured logging for different components
