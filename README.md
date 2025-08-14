@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="src/public/Preverasec%20Cybersecurity%20Logo%20Design.png" alt="PreveraSec Logo" width="320" />
+</p>
+
 # 🚀 PreveraSec - AppSpec++ Full Grey-Box Context Compiler
 
 A production-ready self-aware DAST (Dynamic Application Security Testing) scanner that normalizes all application context into a unified AppSpec powering comprehensive security testing and API governance.
@@ -748,11 +752,40 @@ PreveraSec provides comprehensive metrics across all phases:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+See [CONTRIBUTING.md](./CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) before submitting.
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## � Support & Donations
+
+If this project helps you, please consider supporting ongoing development.
+
+- PayPal: https://paypal.me/yashab07 (email: yashabalam707@gmail.com)
+- Solana (SOL): 5pEwP9JN8tRCXL5Vc9gQrxRyHHyn7J6P2DCC8cSQKDKT
+- Bitcoin (BTC): bc1qmkptg6wqn9sjlx6wf7dk0px0yq4ynr4ukj2x8c
+- Other crypto: email for current addresses (see above)
+
+Full details, tiers, and verification: see [DONATE.md](./DONATE.md).
+
+## 🌐 Socials & Contact
+
+ZehraSec
+- Website: https://www.zehrasec.com
+- Instagram: https://www.instagram.com/_zehrasec?igsh=bXM0cWl1ejdoNHM4
+- Facebook: https://www.facebook.com/profile.php?id=61575580721849
+- X (Twitter): https://x.com/zehrasec?t=Tp9LOesZw2d2yTZLVo0_GA&s=08
+- LinkedIn: https://www.linkedin.com/company/zehrasec
+
+Yashab Alam
+- GitHub: https://github.com/yashab-cyber
+- Instagram: https://www.instagram.com/yashab.alam
+- LinkedIn: https://www.linkedin.com/in/yashab-alam
+- Email: yashabalam707@gmail.com
+- WhatsApp Channel: https://whatsapp.com/channel/0029Vaoa1GfKLaHlL0Kc8k1q
+
+## �🙏 Acknowledgments
 
 - **OpenAPI Initiative** for API specification standards
 - **OWASP** for security testing methodologies
